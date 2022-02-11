@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+  mongo:
+    image: mongo:4.4
+    container_name: mongo
+    hostname: mongo
+    restart: unless-stopped
+    ports:
+      - $MONGO_HOST_PORT:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=$MONGO_ROOT_USERNAME
+      - MONGO_INITDB_ROOT_PASSWORD=$MONGO_ROOT_PASSWORD
+      - MONGO_INITDB_ROOT_DATABASE=$MONGO_AUTH_DB
+      - MONGO_INITDB_DATABASE=$MONGO_DB
+      - MONGO_DB_USERNAME=$MONGO_DB_USERNAME
+      - MONGO_DB_PASSWORD=$MONGO_DB_PASSWORD
+    volumes:
+      - $MONGO_DATA_HOST_PATH:/data/db/
+      - $MONGO_LOG_HOST_PATH:/var/log/mongodb/
+      - ./mongodb/init-scripts/create-user.sh:/docker-entrypoint-initdb.d/create-user.sh:ro
+      - ./mongodb/init-scripts/mongo-import.sh:/docker-entrypoint-initdb.d/mongo-import.sh:ro
+    networks:
+      - main-network
+    command: ["--bind_ip","0.0.0.0"]
+    
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: $APP_NAME
+    container_name: $APP_NAME
+    restart: on-failure
+    depends_on:
+      - mongo
+    ports:
+      - $SERVER_HOST_PORT:8000
+    volumes:
+      - ./service/config/application-test.properties:/service/config/application-test.properties:ro
+    networks:
+      - main-network
+
+networks:
+  main-network:
+      name: $NETWORK_NAME
