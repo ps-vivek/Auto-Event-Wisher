@@ -1,6 +1,8 @@
 package com.love.lovebackend.Entities;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.love.lovebackend.models.BirthdayInfoDto;
+import com.love.lovebackend.models.WeddingAnniversaryInfoDto;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,14 +16,10 @@ public class EventReceiver {
 
     private String receiverLastName;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private Date receiverBirthDate;
+    private String receiverPhoneNumber;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-    private Date receiverAnniversaryDate;
+    private WeddingAnniversaryInfoDto weddingAnniversaryInfo;
 
-    private String receiverPartnerFirstName;
-
-    private String receiverPartnerLastName;
+    private BirthdayInfoDto birthdayInfo;
 
 }
