@@ -1,0 +1,19 @@
+package com.love.lovebackend.models;
+
+import com.love.lovebackend.Entities.EventReceiver;
+import com.love.lovebackend.Entities.EventSender;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.data.annotation.Id;
+
+import java.util.List;
+
+@Setter
+@Getter
+public class EventConfigDto {
+
+    private EventSender eventSenderConfig;
+
+    private List<EventReceiver> eventReceiverConfig;
+
+}

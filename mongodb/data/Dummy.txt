@@ -1,1 +1,0 @@
-I am one dummy file. THis mongodb/data dir is where mongodata is going to roll.
