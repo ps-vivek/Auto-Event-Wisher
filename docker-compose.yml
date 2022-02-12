@@ -35,7 +35,7 @@ services:
     ports:
       - $SERVER_HOST_PORT:8000
     volumes:
-      - .service/externalized/config/application-test.properties:/service/config/application-test.properties:ro
+      - ./service/externalized/config/application-test.properties:/service/config/application-test.properties:ro
     networks:
       - main-network
 
