@@ -13,4 +13,6 @@ public class EventSender {
     private String senderLastName;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date senderBirthDate;
+
+    private String senderPhoneNumber;
 }
