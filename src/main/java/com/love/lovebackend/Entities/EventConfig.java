@@ -15,6 +15,6 @@ public class EventConfig {
 
     private EventSender eventSenderConfig;
 
-    private List<EventReceiver> eventReceiverConfig;
+    private EventReceiver eventReceiverConfig;
 
 }

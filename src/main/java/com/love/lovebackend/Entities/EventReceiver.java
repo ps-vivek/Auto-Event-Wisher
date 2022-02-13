@@ -22,4 +22,10 @@ public class EventReceiver {
 
     private BirthdayInfoDto birthdayInfo;
 
+    private String uniqueReceiverId;
+
+    public void setUniqueReceiverId() {
+        this.uniqueReceiverId = this.receiverFirstName+this.receiverLastName+this.receiverPhoneNumber;
+    }
+
 }

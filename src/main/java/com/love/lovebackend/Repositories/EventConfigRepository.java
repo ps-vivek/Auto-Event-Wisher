@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface EventConfigRepository extends MongoRepository<EventConfig, String> {
+
+    EventConfig findByUniqueSenderIdAndUniqueReceiverId(String uniqueSenderId, String uniqueReceiverId);
 }

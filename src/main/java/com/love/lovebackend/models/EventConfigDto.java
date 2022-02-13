@@ -13,6 +13,6 @@ public class EventConfigDto {
 
     private EventSender eventSenderConfig;
 
-    private List<EventReceiver> eventReceiverConfig;
+    private EventReceiver eventReceiverConfig;
 
 }

@@ -7,6 +7,8 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("event/config")
 @RequiredArgsConstructor
@@ -17,7 +19,7 @@ public class EventWisherController {
     @PostMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody
-    String addEvent(@RequestBody EventConfigDto eventConfigDto) {
+    String addEvent(@RequestBody List<EventConfigDto> eventConfigDto) {
         return eventWisherService.addEvent(eventConfigDto);
     }
 
