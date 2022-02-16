@@ -1,0 +1,17 @@
+server:
+  port: 8000
+spring:
+  data:
+    mongodb:
+      authentication-database: love
+      auto-index-creation: true
+      host: mongo
+      port: 27017
+      username: aaron
+      password: rodgers
+      database: love
+
+mongodb.encrypt:
+  keys:
+    - version: 1
+      key: hqHKBLV83LpCqzKpf8OvutbCs+O5wX5BPu3btWpEvXA=

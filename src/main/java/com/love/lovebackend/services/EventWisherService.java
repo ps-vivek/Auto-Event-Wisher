@@ -9,28 +9,30 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
 public class EventWisherService {
 
-    @Autowired
-    ModelMapper modelMapper ;
+    private final ModelMapper modelMapper ;
 
-    @Autowired
-    EventConfigRepository eventConfigRepo;
+    private final EventConfigRepository eventConfigRepo;
 
-    public String addEvent(List<EventConfigDto>  eventConfigDto) {
+    public List<EventConfig> addEvent(List<EventConfigDto>  eventConfigDto) {
+        List<EventConfig> eventConfigs = new ArrayList<>();
         eventConfigDto.forEach(event -> {
             EventConfig eventConfig = modelMapper.map(event, EventConfig.class);
             //Add logic to avoid duplicates
-            eventConfig.getEventSenderConfig().setUniqueSenderId();
-            eventConfig.getEventReceiverConfig().setUniqueReceiverId();
-            eventConfigRepo.save(eventConfig);
+            eventConfig.setUniqueSenderId();
+            eventConfig.setUniqueReceiverId();
+
+            EventConfig save = eventConfigRepo.save(eventConfig);
+            eventConfigs.add(save);
         });
 
-        return "success";
+        return eventConfigs;
     }
 
 }
