@@ -10,14 +10,13 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class EventSender {
-    @NonNull
+
     private String senderFirstName;
 
-    @NonNull
+    @Encrypted
     private String senderLastName;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 
-    @NonNull
     @Encrypted
     private String senderPhoneNumber;
 

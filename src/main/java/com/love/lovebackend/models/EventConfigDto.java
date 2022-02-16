@@ -11,6 +11,8 @@ import java.util.List;
 @Getter
 public class EventConfigDto {
 
+    private String id;
+
     private EventSender eventSenderConfig;
 
     private EventReceiver eventReceiverConfig;

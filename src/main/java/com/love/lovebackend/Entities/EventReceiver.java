@@ -19,6 +19,7 @@ public class EventReceiver {
 
     private String receiverFirstName;
 
+    @Encrypted
     private String receiverLastName;
 
     @Encrypted
