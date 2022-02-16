@@ -1,4 +1,4 @@
-package com.love.lovebackend.models;
+package com.auto.eventwisher.models;
 
 import com.bol.secure.Encrypted;
 import com.fasterxml.jackson.annotation.JsonFormat;

@@ -1,11 +1,9 @@
-package com.love.lovebackend.models;
+package com.auto.eventwisher.models;
 
-import com.love.lovebackend.Entities.EventReceiver;
-import com.love.lovebackend.Entities.EventSender;
+import com.auto.eventwisher.Entities.EventReceiver;
+import com.auto.eventwisher.Entities.EventSender;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
 
 @Setter
 @Getter

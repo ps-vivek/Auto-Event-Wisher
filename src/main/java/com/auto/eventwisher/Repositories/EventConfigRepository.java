@@ -1,7 +1,7 @@
-package com.love.lovebackend.Repositories;
+package com.auto.eventwisher.Repositories;
 
 
-import com.love.lovebackend.Entities.EventConfig;
+import com.auto.eventwisher.Entities.EventConfig;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

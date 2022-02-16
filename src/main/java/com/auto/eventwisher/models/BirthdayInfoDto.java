@@ -1,4 +1,4 @@
-package com.love.lovebackend.models;
+package com.auto.eventwisher.models;
 
 import com.bol.secure.Encrypted;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -11,6 +11,7 @@ import java.util.Date;
 public class BirthdayInfoDto {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @Encrypted
     private Date receiverBirthDate;
 
     @Encrypted

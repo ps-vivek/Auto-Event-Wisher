@@ -1,19 +1,18 @@
-package com.love.lovebackend;
+package com.auto.eventwisher;
 
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-@SpringBootApplication(scanBasePackages = "com.love.lovebackend.*")
+@SpringBootApplication(scanBasePackages = "com.auto.eventwisher.*")
 @EnableMongoRepositories
-public class LoveBackendApplication {
+public class AutoEventWisherApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LoveBackendApplication.class, args);
+		SpringApplication.run(AutoEventWisherApplication.class, args);
 	}
 
 	@Bean

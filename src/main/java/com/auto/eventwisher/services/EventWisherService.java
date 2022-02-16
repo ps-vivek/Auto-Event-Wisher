@@ -1,8 +1,8 @@
-package com.love.lovebackend.services;
+package com.auto.eventwisher.services;
 
-import com.love.lovebackend.Entities.EventConfig;
-import com.love.lovebackend.Repositories.EventConfigRepository;
-import com.love.lovebackend.models.EventConfigDto;
+import com.auto.eventwisher.Repositories.EventConfigRepository;
+import com.auto.eventwisher.models.EventConfigDto;
+import com.auto.eventwisher.Entities.EventConfig;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;

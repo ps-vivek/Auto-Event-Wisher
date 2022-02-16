@@ -3,13 +3,13 @@ server:
 spring:
   data:
     mongodb:
-      authentication-database: love
+      authentication-database: autoEventWisher
       auto-index-creation: true
       host: mongo
       port: 27017
       username: aaron
-      password: rodgers
-      database: love
+      password: favre
+      database: autoEventWisher
 
 mongodb.encrypt:
   keys:

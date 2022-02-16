@@ -1,6 +1,5 @@
-package com.love.lovebackend.Entities;
+package com.auto.eventwisher.Entities;
 
-import com.bol.secure.Encrypted;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

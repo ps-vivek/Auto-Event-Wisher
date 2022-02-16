@@ -1,8 +1,8 @@
-package com.love.lovebackend.Controllers;
+package com.auto.eventwisher.Controllers;
 
-import com.love.lovebackend.Entities.EventConfig;
-import com.love.lovebackend.models.EventConfigDto;
-import com.love.lovebackend.services.EventWisherService;
+import com.auto.eventwisher.Entities.EventConfig;
+import com.auto.eventwisher.models.EventConfigDto;
+import com.auto.eventwisher.services.EventWisherService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;

@@ -1,10 +1,11 @@
-package com.love.lovebackend;
+package com.auto.eventwisher;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class LoveBackendApplicationTests {
+class AutoEventWisherApplicationTests
+{
 
 
 }

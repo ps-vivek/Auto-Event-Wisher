@@ -1,15 +1,12 @@
-package com.love.lovebackend.Entities;
+package com.auto.eventwisher.Entities;
 
 import com.bol.secure.Encrypted;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.love.lovebackend.models.BirthdayInfoDto;
-import com.love.lovebackend.models.WeddingAnniversaryInfoDto;
+import com.auto.eventwisher.models.BirthdayInfoDto;
+import com.auto.eventwisher.models.WeddingAnniversaryInfoDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.Date;
 
 @Setter
 @Getter
