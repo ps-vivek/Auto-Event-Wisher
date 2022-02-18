@@ -5,8 +5,8 @@ import com.twilio.rest.api.v2010.account.Message;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
+import javax.annotation.PostConstruct;
 import java.util.Objects;
 
 @Service
@@ -21,15 +21,19 @@ public class MessageService {
     @Value("${messaging.twilio.senderPhoneNumber}")
     private String senderPhoneNumber;
 
-    public boolean sendMessage(String outgoingMessage, String outGoingPhoneNumber){
+    @PostConstruct
+    private void initializeTwilio(){
         Twilio.init(accountSid, authToken);
+    }
+
+    public boolean sendMessage(String outgoingMessage, String outGoingPhoneNumber) {
         Message message = Message.creator(
                         new com.twilio.type.PhoneNumber(outGoingPhoneNumber),
                         new com.twilio.type.PhoneNumber(senderPhoneNumber),
                         outgoingMessage)
                 .create();
 
-        return Objects.isNull(message)? false: true;
+        return !Objects.isNull(message);
     }
 
 }
