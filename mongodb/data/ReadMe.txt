@@ -1,1 +1,0 @@
-Leave this folder alone. Mongo data volume will be written inside this folder.

@@ -15,3 +15,9 @@ mongodb.encrypt:
   keys:
     - version: 1
       key: hqHKBLV83LpCqzKpf8OvutbCs+O5wX5BPu3btWpEvXA=
+
+messaging:
+  twilio:
+    accountSid: #Enter your configured sid from twilio
+    authToken: #Enter your authtoken from twilio
+    senderPhoneNumber: #Enter the phone number that you setup in twilio
