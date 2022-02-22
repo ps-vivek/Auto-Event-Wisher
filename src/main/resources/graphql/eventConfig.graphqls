@@ -1,0 +1,31 @@
+type EventConfig {
+	id: ID
+	eventSenderConfig: EventSender
+	eventReceiverConfig: EventReceiver
+}
+
+type EventSender{
+    senderFirstName: String
+    senderLastName: String
+}
+
+type EventReceiver{
+    receiverFirstName: String
+    receiverLastName: String
+    weddingAnniversaryInfo: WeddingAnniversaryInfoDto
+    birthdayInfo: BirthdayInfoDto
+}
+
+type WeddingAnniversaryInfoDto{
+    customAnniversaryWish: String
+    receiverPartnerFirstName: String
+    receiverPartnerLastName: String
+}
+
+type BirthdayInfoDto{
+    customBirthdayWish: String
+}
+
+type Query {
+	findAllEvents: [EventConfig]
+}
