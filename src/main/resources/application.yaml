@@ -1,5 +1,6 @@
 server:
   port: 8000
+spring.profiles.active: dev
 spring:
   data:
     mongodb:
@@ -22,4 +23,6 @@ messaging:
     authToken: #Enter your authtoken from twilio
     senderPhoneNumber: #Enter the phone number that you setup in twilio
 
-graphql.servlet.mapping: /apis/graphql
+graphql:
+  extended-scalars: Date
+  servlet.mapping: /apis/graphql

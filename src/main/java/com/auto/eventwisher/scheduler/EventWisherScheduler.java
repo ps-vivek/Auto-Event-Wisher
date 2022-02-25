@@ -10,8 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Component
@@ -46,7 +45,7 @@ public class EventWisherScheduler {
 
     private void sendBirthdayWish(EventConfig eventConfig) {
         if (Objects.nonNull(eventConfig.getEventReceiverConfig().getBirthdayInfo())) {
-            if (isToday(eventConfig.getEventReceiverConfig().getBirthdayInfo().getReceiverBirthDate())) {
+            if (isEventOccuringToday(eventConfig.getEventReceiverConfig().getBirthdayInfo().getReceiverBirthDate())) {
                 messageService.sendMessage(eventConfig.getEventReceiverConfig().getBirthdayInfo().getCustomBirthdayWish(), eventConfig.getEventReceiverConfig().getReceiverPhoneNumber());
             }
         }
@@ -54,7 +53,7 @@ public class EventWisherScheduler {
 
     private void sendAnniversaryWish(EventConfig eventConfig) {
         if (Objects.nonNull(eventConfig.getEventReceiverConfig().getWeddingAnniversaryInfo())) {
-            if (isToday(eventConfig.getEventReceiverConfig().getWeddingAnniversaryInfo().getReceiverAnniversaryDate())) {
+            if (isEventOccuringToday(eventConfig.getEventReceiverConfig().getWeddingAnniversaryInfo().getReceiverAnniversaryDate())) {
                 WeddingAnniversaryInfoDto weddingAnniversaryInfo = eventConfig.getEventReceiverConfig().getWeddingAnniversaryInfo();
                 weddingAnniversaryInfo.getCustomAnniversaryWish();
                 messageService.sendMessage(weddingAnniversaryInfo.getCustomAnniversaryWish(), eventConfig.getEventReceiverConfig().getReceiverPhoneNumber());
@@ -62,13 +61,10 @@ public class EventWisherScheduler {
         }
     }
 
-    private boolean isToday(Date date) {
-        Calendar today = Calendar.getInstance();
-
-        Calendar specifiedDate = Calendar.getInstance();
-        specifiedDate.setTime(date);
-
-        return today.get(Calendar.DAY_OF_MONTH) == specifiedDate.get(Calendar.DAY_OF_MONTH)
-                && today.get(Calendar.MONTH) == specifiedDate.get(Calendar.MONTH);
+    private boolean isEventOccuringToday(LocalDate eventDate) {
+        LocalDate currentDate = LocalDate.now();
+        return eventDate.getDayOfMonth() == currentDate.getDayOfMonth() && eventDate.getMonth() == currentDate.getMonth();
     }
+
+
 }
