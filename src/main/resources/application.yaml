@@ -1,15 +1,15 @@
 server:
   port: 8000
-#spring.profiles.active: dev
+spring.profiles.active: dev
 spring:
   data:
     mongodb:
       authentication-database: autoEventWisher
       auto-index-creation: true
-      host: mongo
+      #host: mongo
       port: 27017
-      username: aaron
-      password: favre
+      #username: aaron
+      #password: favre
       database: autoEventWisher
 
 mongodb.encrypt:
