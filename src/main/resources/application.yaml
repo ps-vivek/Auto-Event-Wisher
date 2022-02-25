@@ -1,6 +1,6 @@
 server:
   port: 8000
-spring.profiles.active: dev
+#spring.profiles.active: dev
 spring:
   data:
     mongodb:
