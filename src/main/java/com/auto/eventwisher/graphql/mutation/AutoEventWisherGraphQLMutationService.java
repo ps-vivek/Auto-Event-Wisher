@@ -17,11 +17,11 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 @Slf4j
-public class EventConfigMutation implements GraphQLMutationResolver {
+public class AutoEventWisherGraphQLMutationService implements GraphQLMutationResolver {
 
     public static final String EVENT_CONFIG_SAVE_SUCCESS = "Event config save success";
     public static final String EVENT_CONFIG_SAVE_FAILED = "Event config save failed";
-    
+
     private final ModelMapper modelMapper;
 
     private final EventConfigRepository eventConfigRepo;

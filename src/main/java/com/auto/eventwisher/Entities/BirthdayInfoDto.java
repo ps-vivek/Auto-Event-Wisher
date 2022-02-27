@@ -1,4 +1,4 @@
-package com.auto.eventwisher.models;
+package com.auto.eventwisher.Entities;
 
 import com.bol.secure.Encrypted;
 import com.fasterxml.jackson.annotation.JsonFormat;

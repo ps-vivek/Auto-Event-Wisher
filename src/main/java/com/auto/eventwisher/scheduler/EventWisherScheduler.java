@@ -2,7 +2,7 @@ package com.auto.eventwisher.scheduler;
 
 import com.auto.eventwisher.Entities.EventConfig;
 import com.auto.eventwisher.Repositories.EventConfigRepository;
-import com.auto.eventwisher.models.WeddingAnniversaryInfoDto;
+import com.auto.eventwisher.Entities.WeddingAnniversaryInfoDto;
 import com.auto.eventwisher.services.MessageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

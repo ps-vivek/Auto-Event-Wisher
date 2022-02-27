@@ -1,4 +1,4 @@
-package com.auto.eventwisher.config;
+package com.auto.eventwisher.graphql.config;
 
 import graphql.scalars.ExtendedScalars;
 import graphql.schema.GraphQLScalarType;
