@@ -7,13 +7,13 @@ type EventConfigResponse{
 
     senderFirstName: String
 
-    senderLastName: String
-
     senderPhoneNumber: String
 
     receiverFirstName: String
 
-    receiverLastName: String
-
     receiverPhoneNumber: String
+
+    receiverAnniversaryDate: Date
+
+    receiverBirthDate: Date
 }

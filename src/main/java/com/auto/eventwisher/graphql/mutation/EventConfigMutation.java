@@ -1,4 +1,4 @@
-package com.auto.eventwisher.graphql.query.mutation;
+package com.auto.eventwisher.graphql.mutation;
 
 import com.auto.eventwisher.Entities.EventConfig;
 import com.auto.eventwisher.Repositories.EventConfigRepository;
@@ -19,6 +19,9 @@ import java.util.List;
 @Slf4j
 public class EventConfigMutation implements GraphQLMutationResolver {
 
+    public static final String EVENT_CONFIG_SAVE_SUCCESS = "Event config save success";
+    public static final String EVENT_CONFIG_SAVE_FAILED = "Event config save failed";
+    
     private final ModelMapper modelMapper;
 
     private final EventConfigRepository eventConfigRepo;
@@ -32,9 +35,9 @@ public class EventConfigMutation implements GraphQLMutationResolver {
                 EventConfig save = eventConfigRepo.save(eventConfig);
                 eventConfigs.add(save);
             });
-            message = "Event config save success";
+            message = EVENT_CONFIG_SAVE_SUCCESS;
         }catch(MongoException ex){
-            message = "Event config save failed";
+            message = EVENT_CONFIG_SAVE_FAILED;
             log.error("Error encountered while saving event config:{}",ex);
         }
         return message;

@@ -1,4 +1,4 @@
-package com.auto.eventwisher.graphql.query.resolver;
+package com.auto.eventwisher.graphql.query;
 
 
 import com.auto.eventwisher.Entities.EventConfig;
