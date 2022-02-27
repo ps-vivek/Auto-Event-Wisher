@@ -5,11 +5,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.ui.Model;
 
 @SpringBootApplication(scanBasePackages = "com.auto.eventwisher.*")
 @EnableMongoRepositories
@@ -22,6 +24,10 @@ public class AutoEventWisherApplication {
 
 	@Bean
 	public ModelMapper modelMapper(){
+		ModelMapper modelMapper = new ModelMapper();
+		//http://modelmapper.org/examples/flattening/#example-1
+		modelMapper.getConfiguration()
+				.setMatchingStrategy(MatchingStrategies.LOOSE);
 		return new ModelMapper();
 	}
 

@@ -1,3 +1,19 @@
 type Query {
-	findAllEvents: [String]
+	findAllEvents: [EventConfigResponse]
+}
+
+type EventConfigResponse{
+    id: ID
+
+    senderFirstName: String
+
+    senderLastName: String
+
+    senderPhoneNumber: String
+
+    receiverFirstName: String
+
+    receiverLastName: String
+
+    receiverPhoneNumber: String
 }

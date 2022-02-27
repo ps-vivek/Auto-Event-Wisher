@@ -4,6 +4,7 @@ package com.auto.eventwisher.graphql.query.resolver;
 import com.auto.eventwisher.Entities.EventConfig;
 import com.auto.eventwisher.Repositories.EventConfigRepository;
 import com.auto.eventwisher.models.EventConfigDto;
+import com.auto.eventwisher.models.EventConfigResponse;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -20,13 +21,15 @@ public class EventConfigQuery implements GraphQLQueryResolver {
     private final EventConfigRepository eventConfigRepository;
     private final ModelMapper modelMapper;
 
-    public List<String> findAllEvents(){
-        List<String> savedEventConfigIds = new ArrayList<>();
+    public List<EventConfigResponse> findAllEvents(){
+        List<EventConfigResponse> eventConfigResponses = new ArrayList<>();
         List<EventConfig> eventConfigs = eventConfigRepository.findAll();
         if(!CollectionUtils.isEmpty(eventConfigs)){
-            savedEventConfigIds =eventConfigs.stream().map(EventConfig::getId).collect(Collectors.toList());
+            eventConfigs.forEach(events -> {
+                eventConfigResponses.add(modelMapper.map(events,EventConfigResponse.class));
+            });
         }
-        return savedEventConfigIds;
+        return eventConfigResponses;
     }
 
 
