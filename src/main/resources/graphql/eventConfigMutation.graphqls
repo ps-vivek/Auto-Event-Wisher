@@ -1,0 +1,29 @@
+scalar Date
+type Mutation {
+	createEventConfigs(input: [EventConfigDto]): String
+}
+input EventConfigDto {
+	id: ID
+	eventSenderConfig: EventSender
+	eventReceiverConfig: EventReceiver
+}
+input EventSender{
+    senderFirstName: String
+    senderLastName: String
+}
+input EventReceiver{
+    receiverFirstName: String
+    receiverLastName: String
+    weddingAnniversaryInfo: WeddingAnniversaryInfoDto
+    birthdayInfo: BirthdayInfoDto
+}
+input WeddingAnniversaryInfoDto{
+    customAnniversaryWish: String!
+    receiverPartnerFirstName: String!
+    receiverPartnerLastName: String
+    receiverAnniversaryDate: Date!
+}
+input BirthdayInfoDto{
+    customBirthdayWish: String!
+    receiverBirthDate: Date!
+}

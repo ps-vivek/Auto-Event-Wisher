@@ -1,34 +1,3 @@
-scalar Date
-type EventConfig {
-	id: ID
-	eventSenderConfig: EventSender
-	eventReceiverConfig: EventReceiver
-}
-
-type EventSender{
-    senderFirstName: String
-    senderLastName: String
-}
-
-type EventReceiver{
-    receiverFirstName: String
-    receiverLastName: String
-    weddingAnniversaryInfo: WeddingAnniversaryInfoDto
-    birthdayInfo: BirthdayInfoDto
-}
-
-type WeddingAnniversaryInfoDto{
-    customAnniversaryWish: String
-    receiverPartnerFirstName: String
-    receiverPartnerLastName: String
-    receiverAnniversaryDate: Date
-}
-
-type BirthdayInfoDto{
-    customBirthdayWish: String
-    receiverBirthDate: Date
-}
-
 type Query {
-	findAllEvents: [EventConfig]
+	findAllEvents: [String]
 }

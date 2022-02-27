@@ -1,5 +1,9 @@
 package com.auto.eventwisher;
 
+import com.coxautodev.graphql.tools.SchemaParserOptions;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,4 +26,17 @@ public class AutoEventWisherApplication {
 	}
 
 
+	//https://github.com/graphql-java-kickstart/graphql-spring-boot/issues/32
+	@Bean
+	SchemaParserOptions schemaParserOptions() {
+		ObjectMapper objectMapper =
+				new ObjectMapper().registerModule(new JavaTimeModule())
+						.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+		return SchemaParserOptions.newOptions()
+				.objectMapperProvider(fieldDefinition -> objectMapper)
+				.build();
+	}
+
 }
+
+

@@ -15,13 +15,9 @@ public class EventSender {
 
     @Encrypted
     private String senderLastName;
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 
     @Encrypted
     private String senderPhoneNumber;
-
-
-
 
 
 }
