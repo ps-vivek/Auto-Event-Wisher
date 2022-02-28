@@ -48,7 +48,7 @@ public class AutoEventWisherGraphQLMutationService implements GraphQLMutationRes
         return message;
     }
 
-    public boolean DeleteEventConfig(String  id) {
+    public boolean deleteEventConfig(String  id) {
         try {
             eventConfigRepo.deleteById(id);
         }catch(MongoException ex){
