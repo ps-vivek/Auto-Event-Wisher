@@ -1,10 +1,11 @@
 scalar Date
 type Query {
 	findAllEvents: [EventConfigResponse]
+	findEventById(id: String): EventConfigResponse
 }
 
 type EventConfigResponse{
-    id: ID
+    id: ID!
     senderFirstName: String
     senderPhoneNumber: String
     receiverFirstName: String

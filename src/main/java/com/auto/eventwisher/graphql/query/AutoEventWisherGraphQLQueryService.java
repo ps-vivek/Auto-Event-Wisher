@@ -13,6 +13,7 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
@@ -35,6 +36,16 @@ public class AutoEventWisherGraphQLQueryService implements GraphQLQueryResolver 
             });
         }
         return eventConfigResponses;
+    }
+
+    public EventConfigResponse findEventById(String id){
+        EventConfigResponse eventConfigResponse = new EventConfigResponse();
+        Optional<EventConfig> eventConfig = eventConfigRepository.findById(id);
+        if(eventConfig.isPresent()){
+            eventConfigResponse = modelMapper.map(eventConfig.get(),EventConfigResponse.class);
+            eventConfigResponse.setReceiverBirthDate(eventConfig.get().getEventReceiverConfig().getBirthdayInfo().getReceiverBirthDate());
+        }
+        return  eventConfigResponse;
     }
 
 
