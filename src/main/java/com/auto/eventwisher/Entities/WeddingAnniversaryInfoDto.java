@@ -5,10 +5,13 @@ import com.bol.secure.Encrypted;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
+
 import java.time.LocalDate;
 
 @Setter
 @Getter
+@ToString
 public class WeddingAnniversaryInfoDto {
 
     @Encrypted

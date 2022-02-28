@@ -1,10 +1,13 @@
 package com.auto.eventwisher;
 
+import com.auto.eventwisher.Entities.EventConfig;
+import com.auto.eventwisher.models.EventConfigResponse;
 import com.coxautodev.graphql.tools.SchemaParserOptions;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,8 +29,8 @@ public class AutoEventWisherApplication {
 	public ModelMapper modelMapper(){
 		ModelMapper modelMapper = new ModelMapper();
 		//http://modelmapper.org/examples/flattening/#example-1
-		modelMapper.getConfiguration()
-				.setMatchingStrategy(MatchingStrategies.LOOSE);
+
+		modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
 		return new ModelMapper();
 	}
 
