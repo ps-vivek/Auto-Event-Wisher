@@ -1,6 +1,8 @@
 scalar Date
 type Mutation {
-	createEventConfigs(input: [EventConfigDto]): String
+	createMultiEventConfig(input: [EventConfigDto]): String
+	createSingleEventConfig(input: EventConfigDto): String
+	DeleteEventConfig(id: String) : Boolean
 }
 input EventConfigDto {
 	id: ID

@@ -7,11 +7,9 @@ import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.mongodb.MongoException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -26,20 +24,37 @@ public class AutoEventWisherGraphQLMutationService implements GraphQLMutationRes
 
     private final EventConfigRepository eventConfigRepo;
 
-    public String createEventConfigs(List<EventConfigDto>  eventConfigDto) {
-        String message = StringUtils.EMPTY;
+    public String createMultiEventConfig(List<EventConfigDto>  eventConfigDto) {
+        String message;
         try {
-            List<EventConfig> eventConfigs = new ArrayList<>();
-            eventConfigDto.forEach(event -> {
-                EventConfig eventConfig = modelMapper.map(event, EventConfig.class);
-                EventConfig save = eventConfigRepo.save(eventConfig);
-                eventConfigs.add(save);
-            });
+            eventConfigDto.forEach(event -> eventConfigRepo.save( modelMapper.map(event, EventConfig.class)));
             message = EVENT_CONFIG_SAVE_SUCCESS;
         }catch(MongoException ex){
             message = EVENT_CONFIG_SAVE_FAILED;
-            log.error("Error encountered while saving event config:{}",ex);
+            log.error("Error encountered while saving multi event config.",ex);
         }
         return message;
+    }
+
+    public String createSingleEventConfig(EventConfigDto  eventConfigDto) {
+        String message;
+        try {
+            eventConfigRepo.save(modelMapper.map(eventConfigDto, EventConfig.class));
+            message = EVENT_CONFIG_SAVE_SUCCESS;
+        }catch(MongoException ex){
+            message = EVENT_CONFIG_SAVE_FAILED;
+            log.error("Error encountered while saving event config.",ex);
+        }
+        return message;
+    }
+
+    public boolean DeleteEventConfig(String  id) {
+        try {
+            eventConfigRepo.deleteById(id);
+        }catch(MongoException ex){
+            log.error("Error encountered while deleting event config.",ex);
+            return false;
+        }
+        return true;
     }
 }

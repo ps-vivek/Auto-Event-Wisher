@@ -1,20 +1,16 @@
 package com.auto.eventwisher;
 
-import com.auto.eventwisher.Entities.EventConfig;
-import com.auto.eventwisher.models.EventConfigResponse;
 import com.coxautodev.graphql.tools.SchemaParserOptions;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.PropertyMap;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.ui.Model;
 
 @SpringBootApplication(scanBasePackages = "com.auto.eventwisher.*")
 @EnableMongoRepositories
