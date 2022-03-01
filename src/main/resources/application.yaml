@@ -1,17 +1,15 @@
 server:
   port: 8000
-spring.profiles.active: dev
 spring:
   data:
     mongodb:
       authentication-database: autoEventWisher
       auto-index-creation: true
-      #host: mongo
+      host: mongo
       port: 27017
-      #username: aaron
-      #password: favre
+      username: aaron
+      password: favre
       database: autoEventWisher
-
 mongodb.encrypt:
   keys:
     - version: 1
@@ -24,5 +22,13 @@ messaging:
     senderPhoneNumber: #Enter the phone number that you setup in twilio
 
 graphql:
-  extended-scalars: Date
   servlet.mapping: /apis/graphql
+  playground:
+    endpoint: /apis/graphql
+    tabs:
+      - name: Find Event Config By Id
+        query: classpath:playground/findEventById.graphql
+        variables: classpath:playground/findEventById_variables.json
+      - name: Create Event Config
+        query: classpath:playground/createSingleEvent.graphql
+        variables: classpath:playground/createSingleEvent_variables.json

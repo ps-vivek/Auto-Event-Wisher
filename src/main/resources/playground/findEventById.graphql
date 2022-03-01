@@ -1,0 +1,11 @@
+query findEventById ($id: String) {
+    findEventById (id: $id) {
+        id
+        senderFirstName
+        senderPhoneNumber
+        receiverFirstName
+        receiverPhoneNumber
+        receiverAnniversaryDate
+        receiverBirthDate
+    }
+}

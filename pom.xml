@@ -99,6 +99,12 @@
 			<artifactId>graphql-java-extended-scalars</artifactId>
 			<version>17.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.graphql-java-kickstart/playground-spring-boot-autoconfigure -->
+		<dependency>
+			<groupId>com.graphql-java-kickstart</groupId>
+			<artifactId>playground-spring-boot-autoconfigure</artifactId>
+			<version>11.1.0</version>
+		</dependency>
 
 	</dependencies>
 
