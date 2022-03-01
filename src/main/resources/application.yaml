@@ -10,7 +10,6 @@ spring:
       username: aaron
       password: favre
       database: autoEventWisher
-
 mongodb.encrypt:
   keys:
     - version: 1
@@ -21,3 +20,15 @@ messaging:
     accountSid: #Enter your configured sid from twilio
     authToken: #Enter your authtoken from twilio
     senderPhoneNumber: #Enter the phone number that you setup in twilio
+
+graphql:
+  servlet.mapping: /apis/graphql
+  playground:
+    endpoint: /apis/graphql
+    tabs:
+      - name: Find Event Config By Id
+        query: classpath:playground/findEventById.graphql
+        variables: classpath:playground/findEventById_variables.json
+      - name: Create Event Config
+        query: classpath:playground/createSingleEvent.graphql
+        variables: classpath:playground/createSingleEvent_variables.json

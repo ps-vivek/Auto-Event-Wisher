@@ -1,0 +1,3 @@
+mutation createSingleEventConfig ($input: EventConfigDto) {
+    createSingleEventConfig (input: $input)
+}
