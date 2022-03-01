@@ -16,9 +16,8 @@ services:
       - MONGO_DB_PASSWORD=$MONGO_DB_PASSWORD
     volumes:
       - $MONGO_DATA_HOST_PATH:/data/db/
-      - $MONGO_LOG_HOST_PATH:/var/log/mongodb/
-      - ./mongodb/init-scripts/create-user.sh:/docker-entrypoint-initdb.d/create-user.sh:ro
-      - ./mongodb/init-scripts/mongo-import.sh:/docker-entrypoint-initdb.d/mongo-import.sh:ro
+      - $MONGO_CREATE_USER_SCRIPT_HOST_PATH:/docker-entrypoint-initdb.d/create-user.sh:ro
+      - $MONGO_IMPORT_SCRIPT_HOST_PATH:/docker-entrypoint-initdb.d/mongo-import.sh:ro
     networks:
       - main-network
     command: ["--bind_ip","0.0.0.0"]
@@ -35,7 +34,7 @@ services:
     ports:
       - $SERVER_HOST_PORT:8000
     volumes:
-      - ./service/config/application-test.properties:/service/config/application-test.properties:ro
+      - $SPRING_EXTERNAL_CONFIG_PATH:/service/config/application.yaml:ro
     networks:
       - main-network
 

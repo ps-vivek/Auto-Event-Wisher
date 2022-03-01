@@ -1,0 +1,23 @@
+server:
+  port: 8000
+spring:
+  data:
+    mongodb:
+      authentication-database: autoEventWisher
+      auto-index-creation: true
+      host: mongo
+      port: 27017
+      username: aaron
+      password: favre
+      database: autoEventWisher
+
+mongodb.encrypt:
+  keys:
+    - version: 1
+      key: hqHKBLV83LpCqzKpf8OvutbCs+O5wX5BPu3btWpEvXA=
+
+messaging:
+  twilio:
+    accountSid: #Enter your configured sid from twilio
+    authToken: #Enter your authtoken from twilio
+    senderPhoneNumber: #Enter the phone number that you setup in twilio
