@@ -1,0 +1,23 @@
+{
+  "input": {
+    "eventSenderConfig": {
+      "senderFirstName": "Vivek",
+      "senderLastName": "M"
+    },
+    "eventReceiverConfig": {
+      "receiverFirstName": "E",
+      "receiverLastName": "M",
+      "receiverPhoneNumber": "+1GoPackGo",
+      "weddingAnniversaryInfo": {
+        "customAnniversaryWish": "Happy anniversary!",
+        "receiverPartnerFirstName": "N",
+        "receiverPartnerLastName": "M",
+        "receiverAnniversaryDate": "2018-03-23"
+      },
+      "birthdayInfo": {
+        "customBirthdayWish": "Happy birthday A",
+        "receiverBirthDate": "1919-07-25"
+      }
+    }
+  }
+}

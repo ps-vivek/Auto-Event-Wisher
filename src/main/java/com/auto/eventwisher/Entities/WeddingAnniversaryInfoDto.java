@@ -1,18 +1,22 @@
-package com.auto.eventwisher.models;
+package com.auto.eventwisher.Entities;
 
 import com.bol.secure.Encrypted;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Setter
 @Getter
+@ToString
 public class WeddingAnniversaryInfoDto {
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+
     @Encrypted
-    private Date receiverAnniversaryDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private LocalDate receiverAnniversaryDate;
 
     @Encrypted
     private String customAnniversaryWish;

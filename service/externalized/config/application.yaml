@@ -21,3 +21,7 @@ messaging:
     accountSid: #Enter your configured sid from twilio
     authToken: #Enter your authtoken from twilio
     senderPhoneNumber: #Enter the phone number that you setup in twilio
+
+graphql:
+  extended-scalars: Date
+  servlet.mapping: /apis/graphql

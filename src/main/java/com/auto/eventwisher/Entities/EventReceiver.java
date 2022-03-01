@@ -1,8 +1,6 @@
 package com.auto.eventwisher.Entities;
 
 import com.bol.secure.Encrypted;
-import com.auto.eventwisher.models.BirthdayInfoDto;
-import com.auto.eventwisher.models.WeddingAnniversaryInfoDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
