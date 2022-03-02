@@ -24,7 +24,9 @@ messaging:
 graphql:
   servlet.mapping: /apis/graphql
   playground:
+    enabled: true
     endpoint: /apis/graphql
+    staticPath.base: /vendor/playground
     tabs:
       - name: Find Event Config By Id
         query: classpath:playground/findEventById.graphql
