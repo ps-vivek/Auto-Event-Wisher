@@ -3,6 +3,7 @@ package com.auto.eventwisher.graphql.query;
 
 import com.auto.eventwisher.Entities.EventConfig;
 import com.auto.eventwisher.Repositories.EventConfigRepository;
+import com.auto.eventwisher.graphql.exception.EventConfigNotFoundException;
 import com.auto.eventwisher.models.EventConfigResponse;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import lombok.RequiredArgsConstructor;
@@ -44,6 +45,8 @@ public class AutoEventWisherGraphQLQueryService implements GraphQLQueryResolver 
         if(eventConfig.isPresent()){
             eventConfigResponse = modelMapper.map(eventConfig.get(),EventConfigResponse.class);
             eventConfigResponse.setReceiverBirthDate(eventConfig.get().getEventReceiverConfig().getBirthdayInfo().getReceiverBirthDate());
+        }else{
+            throw new EventConfigNotFoundException("Unable to find event config","id");
         }
         return  eventConfigResponse;
     }
