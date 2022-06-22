@@ -3,8 +3,8 @@ package com.auto.eventwisher.graphql.mutation;
 import com.auto.eventwisher.Entities.EventConfig;
 import com.auto.eventwisher.Repositories.EventConfigRepository;
 import com.auto.eventwisher.models.EventConfigDto;
-import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import com.mongodb.MongoException;
+import graphql.kickstart.tools.GraphQLMutationResolver;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -29,7 +29,7 @@ public class AutoEventWisherGraphQLMutationService implements GraphQLMutationRes
         try {
             eventConfigDto.forEach(event -> eventConfigRepo.save( modelMapper.map(event, EventConfig.class)));
             message = EVENT_CONFIG_SAVE_SUCCESS;
-        }catch(MongoException ex){
+        }catch(Exception ex){
             message = EVENT_CONFIG_SAVE_FAILED;
             log.error("Error encountered while saving multi event config.",ex);
         }
@@ -41,7 +41,7 @@ public class AutoEventWisherGraphQLMutationService implements GraphQLMutationRes
         try {
             eventConfigRepo.save(modelMapper.map(eventConfigDto, EventConfig.class));
             message = EVENT_CONFIG_SAVE_SUCCESS;
-        }catch(MongoException ex){
+        }catch(Exception ex){
             message = EVENT_CONFIG_SAVE_FAILED;
             log.error("Error encountered while saving event config.",ex);
         }
@@ -51,7 +51,7 @@ public class AutoEventWisherGraphQLMutationService implements GraphQLMutationRes
     public boolean deleteEventConfig(String  id) {
         try {
             eventConfigRepo.deleteById(id);
-        }catch(MongoException ex){
+        }catch(Exception ex){
             log.error("Error encountered while deleting event config.",ex);
             return false;
         }

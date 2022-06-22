@@ -70,3 +70,14 @@ curl --location --request POST 'http://localhost:port/apis/graphql' \
 
 
 Once an event is configured, a scheduler will run daily and send out text messages to number configured with custom messages if the current day happens to be the event day.
+
+
+-------------------
+GRAPHQL PLAYGROUND:
+-------------------
+http://localhost:port/playground
+
+---------------
+GRAPHQL VOYAGER:
+---------------
+http://localhost:port/voyager.html

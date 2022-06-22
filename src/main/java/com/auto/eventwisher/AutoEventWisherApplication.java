@@ -1,9 +1,10 @@
 package com.auto.eventwisher;
 
-import com.coxautodev.graphql.tools.SchemaParserOptions;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import graphql.kickstart.tools.SchemaParserOptions;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.boot.SpringApplication;
